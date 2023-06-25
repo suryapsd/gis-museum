@@ -20,7 +20,7 @@
 						 @csrf
 						 <input type="hidden" name="museum_id" id="museum_id" value="{{$data_museum->id}}">
 						 <div class="row mb-3">
-							<label class="form-label" for="basic-default-name">Foto Museum</label>
+							<label class="form-label" for="basic-default-name">Foto Pengurus <span style="color: red">*</span></label>
 							<div class="input-group">
                                 <input type='file' class="form-control @error('image') is-invalid @enderror" name="image" id="image" multiple accept=".png, .jpg, .jpeg" />
                                 <label class="input-group-text" for="image">Choose images</label>
@@ -31,7 +31,7 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Nama Pengurus</label>
+								<label class="form-label" for="basic-default-name">Nama Pengurus <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" placeholder="Masukkan nama pengurus"/>
 									@error('nama')
@@ -40,7 +40,7 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Jabatan</label>
+								<label class="form-label" for="basic-default-name">Jabatan <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan" placeholder="Masukkan jabatan pengurus"/>
 									@error('jabatan')
@@ -51,7 +51,7 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Telepon</label>
+								<label class="form-label" for="basic-default-name">Telepon <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('telepon') is-invalid @enderror" id="telepon" name="telepon" placeholder="089xxxxxxxxx"/>
 									@error('telepon')
@@ -60,7 +60,7 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Alamat</label>
+								<label class="form-label" for="basic-default-name">Alamat <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" placeholder="Masukkan alamat pengurus"/>
 									@error('alamat')
@@ -71,7 +71,7 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-4">
-								<label class="form-label" for="basic-default-name">Waktu Mulai</label>
+								<label class="form-label" for="basic-default-name">Waktu Mulai <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="date" class="form-control @error('waktu_mulai') is-invalid @enderror" id="waktu_mulai" name="waktu_mulai" placeholder="dd/mm/yyyy"/>
 									@error('waktu_mulai')
@@ -90,10 +90,12 @@
 							</div>
 							<div class="col-md-4">
 								<div>
-									<label for="exampleFormControlSelect1" class="form-label">Status</label>
+									<label for="exampleFormControlSelect1" class="form-label">Status <span style="color: red">*</span></label>
 									<select class="form-select" id="is_aktif" name="is_aktif" aria-label="Default select example">
 									<option selected>Pilih status pengurus</option>
 									<option value="1">Aktif</option>
+									<option value="2">Cuti</option>
+									<option value="3">Tidak Aktif</option>
 									</select>
 								</div>
 							</div>

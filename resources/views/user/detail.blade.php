@@ -12,6 +12,12 @@
       height: 250px;
       object-fit: cover;
     }
+
+	.cropped-image-pengurus {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
 </style>
 <div class="site-blocks-cover overlay" style="background-color: rgba(0, 0, 0, 0.8); position: relative;">
     <img src="/uploads/imgCover/{{ $museum->images[0]->path }}" alt="Background Image" style="filter: brightness(0.3); object-fit: cover; width: 100%; height: 100%; position: absolute; top: 0; left: 0;">
@@ -37,7 +43,7 @@
 
 <section class="site-section" id="galeri">
 	<div class="container">
-		<div class="row mb-5 border-bottom bg-light">
+		<div class="row mb-5 border-bottom">
 			<div class="col-12 text-center" data-aos="fade">
 				<h2 class="section-title mb-3">Galeri Museum</h2>
 				<p class="desc" data-aos="fade-up" data-aos-delay="100">Galeri merupakan ruang pameran yang dirancang secara khusus untuk menampilkan koleksi atau karya seni dengan cara yang informatif dan estetis. Tujuan utama galeri adalah memberikan pengalaman yang mendalam kepada pengunjung, memungkinkan mereka untuk belajar, menghargai, dan merenungkan karya seni atau artefak yang dipamerkan.</p>
@@ -55,9 +61,6 @@
 							<p>
 								{{$galeris->desc}}
 							</p>
-							<p>
-								<a href="#">Learn More</a>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -72,7 +75,7 @@
 			<div class="col-12 text-center" data-aos="fade">
 				<h2 class="section-title mb-3">Koleksi Galeri</h2>
 				<p class="desc" data-aos="fade-up" data-aos-delay="100">Koleksi museum bisa mencakup berbagai jenis benda, termasuk lukisan, patung, fotografi, arsitektur, tekstil, artefak sejarah, artefak arkeologi, spesimen alam, benda-benda etnografis, dokumentasi sejarah, dan masih banyak lagi.</p>
-				<p class="desc" data-aos="fade-up" data-aos-delay="100">Silahkan klik tombol dibawah ini untuk melihat koleksi pada galeri tertentu.</p>
+				<p class="desc" data-aos="fade-up" data-aos-delay="100">Silahkan klik tombol dibawah ini untuk melihat koleksi pada setiap galeri.</p>
 			</div>
 		</div>
 		<div class="row justify-content-center mb-5" data-aos="fade-up">
@@ -86,7 +89,7 @@
 		<div id="posts" class="row no-gutter">
 			@foreach ($galeri as $galeris)
 				@foreach ($galeris->koleksis as $koleksi)
-					<div class="item {{$koleksi->galeri_id}} col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
+					<div class="item {{$koleksi->galeri_id}} col-md-6 col-lg-3 mb-4" >
 						<div class="team-member card">
 							<img src="/uploads/imgCover/{{ $koleksi->koleksi_images[0]->path }}" alt="Image" class="img-fluid cropped-image">
 							<div class="p-3 text-center">
@@ -134,10 +137,27 @@
 										<span class='carousel-control-next-icon' aria-hidden='true'></span>
 									</a>
 								</div>
-								<div class="p-3 text-center">
-									<h3>{{ $koleksi->nama }} <span class="desc">({{ date('Y', strtotime($koleksi->tahun)) }})</span></h3>
-									<span class="position">{{ $koleksi->artist }}<br></span>
-									<p class="desc">{{ $koleksi->desc }}</p>
+								<div class="p-3">
+									<table class="table">
+										<tbody>
+											<tr>
+												<td width="30%">Nama Karya</td>
+												<td>{{ $koleksi->nama }}</td>
+											</tr>
+											<tr>
+												<td width="30%">Tahun Pembuatan</td>
+												<td>{{ $koleksi->tahun }}</td>
+											</tr>
+											<tr>
+												<td width="30%">Nama Seniman</td>
+												<td>{{ $koleksi->artist }}</td>
+											</tr>
+											<tr>
+												<td width="30%">Deskripsi Karya</td>
+												<td>{{ $koleksi->desc }}</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 							</div>
 						</div>
@@ -161,7 +181,7 @@
 				<div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="">
 					<div class="team-member">
 						<figure>
-						<img src="/uploads/imgCover/{{ $penguruses->image }}" alt="Image" class="img-fluid">
+							<img src="/uploads/imgCover/{{ $penguruses->image }}" alt="Image" class="img-fluid cropped-image-pengurus">
 						</figure>
 						<div class="p-3 text-center">
 							<h3>{{ $penguruses->nama_pengurus }}</h3>
@@ -182,22 +202,16 @@
 			</div>
 		</div>
 		<div class="row mb-5">
-			<div class="col-md-4 text-center">
+			<div class="col-md-6 text-center">
 				<p class="mb-4">
 					<span class="icon-room d-block h4 text-primary"></span>
-					<span>203 Fake St. Mountain View, San Francisco, California, USA</span>
+					<span>{{$museum->alamat}}</span>
 				</p>
 			</div>
-			<div class="col-md-4 text-center">
+			<div class="col-md-6 text-center">
 				<p class="mb-4">
 					<span class="icon-phone d-block h4 text-primary"></span>
-					<a href="#">+1 232 3235 324</a>
-				</p>
-			</div>
-			<div class="col-md-4 text-center">
-				<p class="mb-0">
-					<span class="icon-mail_outline d-block h4 text-primary"></span>
-					<a href="#">youremail@domain.com</a>
+					<a href="#">{{$museum->telepon}}</a>
 				</p>
 			</div>
 		</div>

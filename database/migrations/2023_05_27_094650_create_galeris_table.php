@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('museum_id');
             $table->string('nama', 60);
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

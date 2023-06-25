@@ -37,7 +37,7 @@
                             <th>No</th>
                             <th>Foto</th>
                             <th>Nama</th>
-                            <th>Artist</th>
+                            <th>Nama Seniman</th>
                             <th>Tahun Pembuatan</th>
                             <th>Deskripsi</th>
                             <th>Actions</th>
@@ -71,7 +71,7 @@
                 <div class="modal-body">
                     <input type="text" hidden name="museum_id" id="museum_id" value="">
                     <div class="row">
-                        <label class="form-label" for="basic-default-name">Foto Museum</label>
+                        <label class="form-label" for="basic-default-name">Foto Koleksi <span style="color: red">*</span></label>
 							<div class="input-group">
                                 <input type='file' class="form-control @error('image_name') is-invalid @enderror" name="image_name[]" id="image_name" multiple accept=".png, .jpg, .jpeg" />
                                 <label class="input-group-text" for="image_name">Choose images</label>
@@ -161,8 +161,8 @@ $(document).ready(function() {
                 class: 'text-center'
             },
             {
-                data: 'desc',
-                name: 'desc',
+                data: 'description',
+                name: 'description',
                 orderable: true,
                 searchable: true,
                 class: 'text-left'

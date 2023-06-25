@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('id');
             $table->integer('galeri_id');
             $table->string('nama', 60);
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
             $table->date('tahun')->nullable();
             $table->string('artist')->nullable();
             $table->softDeletes();

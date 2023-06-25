@@ -19,7 +19,8 @@ return new class extends Migration
             $table->integer('jenis_id')->nullable();
             $table->string('alamat')->nullable();
             $table->string('telepon')->nullable();
-            $table->string('desc')->nullable();
+            $table->text('desc')->nullable();
+            $table->string('icon')->nullable();
             $table->string('lat')->nullable();
             $table->string('long')->nullable();
             $table->softDeletes();

@@ -15,20 +15,32 @@
 				<div class="card-body">
 					<form action="/admin/museum/{{$data->id}}" method="post" enctype="multipart/form-data">
 						@method('PUT')
-						 @csrf
-						 <div class="row mb-3">
-							<label class="form-label" for="basic-default-name">Foto Museum</label>
-							<div class="input-group">
-                                <input type='file' class="form-control @error('image_name') is-invalid @enderror" name="image_name[]" id="image_name" multiple accept=".png, .jpg, .jpeg" />
-                                <label class="input-group-text" for="image_name">Choose images</label>
-                                @error('image_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+						@csrf
+						<div class="row mb-3">
+							<div class="col-md-6">
+								<label class="form-label" for="basic-default-name">Foto Museum <span style="color: red">*</span></label>
+								<div class="input-group">
+									<input type='file' class="form-control @error('image_name') is-invalid @enderror" name="image_name[]" id="image_name" multiple accept=".png, .jpg, .jpeg" />
+									<label class="input-group-text" for="image_name">Choose images</label>
+									@error('image_name')
+										<div class="invalid-feedback">{{ $message }}</div>
+									@enderror
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label class="form-label" for="basic-default-name">Marker Museum</label>
+								<div class="input-group">
+									<input type='file' class="form-control @error('icon') is-invalid @enderror" name="icon" id="icon" accept=".png" />
+									<label class="input-group-text" for="icon">Choose marker</label>
+									@error('icon')
+										<div class="invalid-feedback">{{ $message }}</div>
+									@enderror
+								</div>
+							</div>
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Nama Museum</label>
+								<label class="form-label" for="basic-default-name">Nama Museum <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{$data->nama}}" placeholder="Masukkan nama museum"/>
 									@error('name')
@@ -38,7 +50,7 @@
 							</div>
 							<div class="col-md-6">
 								<div>
-									<label for="exampleFormControlSelect1" class="form-label">Jenis Museum</label>
+									<label for="exampleFormControlSelect1" class="form-label">Jenis Museum <span style="color: red">*</span></label>
 									<select class="form-select @error('jenis') is-invalid @enderror" id="jenis" name="jenis" aria-label="Default select example">
 									<option>Pilih jenis museum</option>
 										@foreach($jenis as $jenism)
@@ -57,7 +69,7 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Telepon</label>
+								<label class="form-label" for="basic-default-name">Telepon <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('telepon') is-invalid @enderror" id="telepon" name="telepon" value="{{$data->telepon}}" placeholder="089xxxxxxxxx"/>
 									@error('telepon')
@@ -66,7 +78,7 @@
 								</div>
 							</div>
 							<div class="col-md-6">
-								<label class="form-label" for="basic-default-name">Alamat</label>
+								<label class="form-label" for="basic-default-name">Alamat <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{$data->alamat}}" placeholder="Masukkan alamat museum"/>
 									@error('alamat')
@@ -76,7 +88,7 @@
 							</div>
 						</div>
 						<div class="row mb-3">
-							<label class="form-label" for="basic-default-message">Deskripsi</label>
+							<label class="form-label" for="basic-default-message">Deskripsi <span style="color: red">*</span></label>
 							<div class="form-group">
 								<textarea id="desc" name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="Masukkan deskripsi museum" aria-describedby="basic-icon-default-message2">{{$data->desc}}</textarea>
 								@error('desc')
@@ -86,13 +98,13 @@
 						</div>
 						<div class="row mb-3">
 							<div class="col-md-6 mb-3">
-								<label class="form-label" for="basic-default-name">Latitude</label>
+								<label class="form-label" for="basic-default-name">Latitude <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control" id="lat" name="lat" value="{{$data->lat}}" placeholder="Latitude" readonly/>
 								</div>
 							</div>
 							<div class="col-md-6 mb-3">
-								<label class="form-label" for="basic-default-name">Longtitude</label>
+								<label class="form-label" for="basic-default-name">Longtitude <span style="color: red">*</span></label>
 								<div class="form-group">
 									<input type="text" class="form-control" id="long" name="long" value="{{$data->long}}" placeholder="Longtitude" readonly/>
 								</div>

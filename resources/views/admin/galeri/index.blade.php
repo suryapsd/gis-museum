@@ -54,15 +54,15 @@
                     <input type="hidden" name="museum_id" id="museum_id" value="{{ $data_museum->id }}">
                     <div class="row">
                         <div class="col mb-3">
-                          <label for="nameBackdrop" class="form-label">Nama Galeri</label>
+                          <label for="nameBackdrop" class="form-label">Nama Galeri <span style="color: red">*</span></label>
                           <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama museum" value="" maxlength="50" required="">
                           <span class="invalid-feedback" id="nama_error"></span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col mb-3">
-                          <label for="nameBackdrop" class="form-label">Deskripsi</label>
-                          <textarea id="desc" name="desc" class="form-control" value="" maxlength="50" required="" placeholder="Masukkan deskripsi galeri" aria-describedby="basic-icon-default-message2"></textarea>
+                          <label for="nameBackdrop" class="form-label">Deskripsi <span style="color: red">*</span></label>
+                          <textarea rows="5" id="desc" name="desc" class="form-control" value=""  required="" placeholder="Masukkan deskripsi galeri" aria-describedby="basic-icon-default-message2"></textarea>
                           <span class="invalid-feedback" id="desc_error"></span>
                         </div>
                     </div>
@@ -128,8 +128,8 @@
                     class: 'text-left'
                 },
                 {
-                    data: 'desc',
-                    name: 'desc',
+                    data: 'description',
+                    name: 'description',
                     orderable: true,
                     searchable: true,
                     class: 'text-left'

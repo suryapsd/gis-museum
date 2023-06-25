@@ -66,7 +66,7 @@
                 <div class="modal-body">
                     <input type="text" hidden name="museum_id" id="museum_id" value="">
                     <div class="row">
-                        <label class="form-label" for="basic-default-name">Foto Museum</label>
+                        <label class="form-label" for="basic-default-name">Foto Museum <span style="color: red">*</span></label>
 							<div class="input-group">
                                 <input type='file' class="form-control @error('image_name') is-invalid @enderror" name="image_name[]" id="image_name" multiple accept=".png, .jpg, .jpeg" />
                                 <label class="input-group-text" for="image_name">Choose images</label>

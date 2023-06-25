@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
 use DB;
+use Illuminate\Support\Str;
 
 class GaleriController extends Controller
 {
@@ -39,18 +40,17 @@ class GaleriController extends Controller
         ->addIndexColumn()
         ->addColumn('action', function($data){
             $actionBtn = "
-            <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
-                <i class='bx bx-dots-vertical-rounded'></i>
-            </button>
-            <div class='dropdown-menu'>
-                <a class='dropdown-item' href='/admin/galeri/$data->id/koleksi/' data-id='{$data->id}'><i class='bx bx-image-add me-1'></i> Koleksi Galeri</a>
-                <a class='dropdown-item editData' href='javascript:void(0)' data-id='{$data->id}'><i class='bx bx-edit-alt me-1'></i> Edit</a>
-                <a class='dropdown-item' href='javascript:void(0)' onclick='deleteData(\"{$data->id}\")' data-id='{$data->id}'><i class='bx bx-trash me-1'></i> Delete</a>
-            </div>
+                <a href='/admin/galeri/$data->id/koleksi/' class='btn btn-icon btn-warning' title='koleksi galeri'><span class='tf-icons bx bx-category-alt'></span></a>
+                <a href='javascript:void(0)' data-id='{$data->id}' class='btn btn-icon btn-primary editData' title='edit data'><span class='tf-icons bx bx-edit-alt'></span></a>
+                <a href='javascript:void(0)' onclick='deleteData(\"{$data->id}\")' data-id='{$data->id}' class='btn btn-icon btn-danger' title='hapus data'><span class='tf-icons bx bx-trash'></span></a>
             ";
             return $actionBtn;
         })
-        ->rawColumns(['action'])
+        ->addColumn('description', function($data){
+            $desc = Str::words($data->desc, 10);
+            return $desc;
+        })
+        ->rawColumns(['action', 'description'])
         ->make(true);
     }
 

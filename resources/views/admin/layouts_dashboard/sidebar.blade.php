@@ -22,12 +22,12 @@
 		<span class="menu-header-text">Master</span>
 	</li>
 	<!-- Cards -->
-	<li class="menu-item {{ (request()->is('admin/jenis-museum*')) ? 'active' : '' }}">
+	{{-- <li class="menu-item {{ (request()->is('admin/jenis-museum*')) ? 'active' : '' }}">
 		<a href="/admin/jenis-museum" class="menu-link">
 		<i class="menu-icon tf-icons bx bx-disc"></i>
 		<div data-i18n="Basic">Jenis Museum</div>
 		</a>
-	</li>
+	</li> --}}
 	<li class="menu-item {{ (request()->is('admin/museum*') || request()->is('admin/museum/*')) ? 'active' : '' }}">
 		<a href="/admin/museum" class="menu-link">
 		<i class="menu-icon tf-icons bx bx-arch"></i>

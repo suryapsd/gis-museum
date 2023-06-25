@@ -53,7 +53,7 @@ class MapController extends Controller
     public function show($id)
     {
         $museum = Museum::find($id);
-        $pengurus = Pengurus::where('museum_id',$id)->get();
+        $pengurus = Pengurus::where('museum_id',$id)->where('is_aktif',1)->get();
         $galeri = Galeri::where('museum_id',$id)->get();
         // foreach($galeri as $galeris){
         //     $koleksi = Koleksi::where('galeri_id',$galeris->id)->get();

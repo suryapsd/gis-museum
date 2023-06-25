@@ -47,16 +47,11 @@ class MuseumController extends Controller
         })
         ->addColumn('action', function($data){
             $actionBtn = "
-            <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
-                <i class='bx bx-dots-vertical-rounded'></i>
-            </button>
-            <div class='dropdown-menu'>
-                <a class='dropdown-item' href='javascript:void(0)' onclick='addData(\"{$data->id}\")' data-id='{$data->id}'><i class='bx bx-image-add me-1'></i> Tambah Foto</a>
-                <a class='dropdown-item' href='/admin/museum/$data->id/galeri/'><i class='bx bx-category-alt me-1'></i> Galeri Museum</a>
-                <a class='dropdown-item' href='/admin/museum/$data->id/pengurus/'><i class='bx bx-user me-1'></i> Pengurus Museum</a>
-                <a class='dropdown-item' href='/admin/museum/$data->id/edit'><i class='bx bx-edit-alt me-1'></i> Edit</a>
-                <a class='dropdown-item' href='javascript:void(0)' onclick='deleteData(\"{$data->id}\")' data-id='{$data->id}'><i class='bx bx-trash me-1'></i> Delete</a>
-            </div>
+                <a href='javascript:void(0)' onclick='addData(\"{$data->id}\")' data-id='{$data->id}' class='btn btn-icon btn-secondary editData' title='tambah gambar'><span class='tf-icons bx bx-image-add'></span></a>
+                <a href='/admin/museum/$data->id/galeri' class='btn btn-icon btn-success editData' title='galeri museum'><span class='tf-icons bx bx-category-alt'></span></a>
+                <a href='/admin/museum/$data->id/pengurus' class='btn btn-icon btn-warning editData' title='pengurus museum'><span class='tf-icons bx bx-user'></span></a>
+                <a href='/admin/museum/$data->id/edit' class='btn btn-icon btn-primary editData' title='edit data'><span class='tf-icons bx bx-edit-alt'></span></a>
+                <a href='javascript:void(0)' onclick='deleteData(\"{$data->id}\")' data-id='{$data->id}' class='btn btn-icon btn-danger' title='hapus data'><span class='tf-icons bx bx-trash'></span></a>
             ";
             return $actionBtn;
         })
@@ -110,6 +105,14 @@ class MuseumController extends Controller
         $data->desc = $request->input('desc');
         $data->lat = $request->input('lat');
         $data->long = $request->input('long');
+        if ($request->hasFile('icon')) {
+            $file = $request->file('icon');
+            $uploadFile = time() . '_' . $file->getClientOriginalName();
+            $file->move('uploads/icon/', $uploadFile);
+            $data->icon = $uploadFile;
+        }else{
+            $data->icon = 'museum.png';
+        }
         // proses simpan data
         $data->save();
 
@@ -187,6 +190,16 @@ class MuseumController extends Controller
         $data->desc = $request->input('desc');
         $data->lat = $request->input('lat');
         $data->long = $request->input('long');
+        if ($request->hasFile('icon')) {
+            // if (File::exists("uploads/icon/" . $data->icon)) {
+            //     File::delete("uploads/icon/" . $data->icon);
+            // }
+            $file = $request->file("icon");
+            //$uploadFile = StoreImage::replace($space->image,$file->getRealPath(),$file->getClientOriginalName());
+            $uploadFile = time() . '_' . $file->getClientOriginalName();
+            $file->move('uploads/icon/', $uploadFile);
+            $data->icon = $uploadFile;
+        }
 
         $data->update();
 

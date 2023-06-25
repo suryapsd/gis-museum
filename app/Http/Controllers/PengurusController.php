@@ -52,13 +52,8 @@ class PengurusController extends Controller
         })
         ->addColumn('action', function($data){
             $actionBtn = "
-            <button type='button' class='btn p-0 dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
-                <i class='bx bx-dots-vertical-rounded'></i>
-            </button>
-            <div class='dropdown-menu'>
-                <a class='dropdown-item' href='/admin/museum/{$data->museum_id}/pengurus/{$data->id}/edit'><i class='bx bx-edit-alt me-1'></i> Edit</a>
-                <a class='dropdown-item' href='javascript:void(0)' onclick='deleteData(\"{$data->id}\")' data-id='{$data->id}'><i class='bx bx-trash me-1'></i> Delete</a>
-            </div>
+                <a href='/admin/museum/{$data->museum_id}/pengurus/{$data->id}/edit' class='btn btn-icon btn-primary' title='edit data'><span class='tf-icons bx bx-edit-alt'></span></a>
+                <a href='javascript:void(0)' onclick='deleteData(\"{$data->id}\")' data-id='{$data->id}' class='btn btn-icon btn-danger' title='hapus data'><span class='tf-icons bx bx-trash'></span></a>
             ";
             return $actionBtn;
         })
@@ -201,6 +196,7 @@ class PengurusController extends Controller
 
         // Lakukan Proses update data ke tabel space
         $data->nama_pengurus = $request->nama;
+        $data->jabatan = $request->jabatan;
         $data->alamat_pengurus = $request->alamat;
         $data->telepon_pengurus = $request->telepon;
         $data->waktu_mulai = $request->waktu_mulai;

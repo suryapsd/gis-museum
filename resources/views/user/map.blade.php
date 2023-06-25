@@ -107,13 +107,13 @@
 
       var markerClusters = L.markerClusterGroup();
 
-      var micon = L.icon({
-        iconUrl: "museum.png",
-        iconSize: [34, 34], // size of the icon
-        popupAnchor: [0, -30], // point from which the popup should open relative to the iconAnchor
-      });
-
       @foreach ($spaces as $item)
+        var micon = L.icon({
+          iconUrl: "/uploads/icon/{{ $item->icon }}.png",
+          iconSize: [34, 34], // size of the icon
+          popupAnchor: [0, -30], // point from which the popup should open relative to the iconAnchor
+        });
+
         var marker = L.marker([{{ $item->lat }},{{ $item->long }}], {icon: micon})
         // marker.on('click', function(e){
         //   $("#modalCreate").modal("show");
