@@ -28,7 +28,7 @@
 		<div data-i18n="Basic">Jenis Museum</div>
 		</a>
 	</li> --}}
-	<li class="menu-item {{ (request()->is('admin/museum*') || request()->is('admin/museum/*')) ? 'active' : '' }}">
+	<li class="menu-item {{ (request()->is('admin/museum*') || request()->is('admin/galeri/*')) ? 'active' : '' }}">
 		<a href="/admin/museum" class="menu-link">
 		<i class="menu-icon tf-icons bx bx-arch"></i>
 		<div data-i18n="Basic">Museum</div>

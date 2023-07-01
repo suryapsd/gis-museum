@@ -227,7 +227,7 @@
     });
 
     function deleteData(id){
-        Swal.fire({
+        CustomSwal.fire({
             icon:'warning',
             text: 'Hapus Data Galeri?',
             showCancelButton: true,

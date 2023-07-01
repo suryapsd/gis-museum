@@ -62,7 +62,7 @@
 						<div class="row mb-3">
 							<label class="form-label" for="basic-default-message">Deskripsi <span style="color: red">*</span></label>
 							<div class="form-group">
-								<textarea id="desc" name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="Masukkan deskripsi koleksi/karya" aria-describedby="basic-icon-default-message2">{{$data->desc}}</textarea>
+								<textarea rows="5" id="desc" name="desc" class="form-control @error('desc') is-invalid @enderror" placeholder="Masukkan deskripsi koleksi/karya" aria-describedby="basic-icon-default-message2">{{$data->desc}}</textarea>
 								@error('desc')
 									<div class="invalid-feedback">{{ $message }}</div>
 								@enderror

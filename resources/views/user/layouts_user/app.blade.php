@@ -21,6 +21,7 @@
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+	<link rel="stylesheet" href="{{ asset('user/leaflet-routing-machine/dist/leaflet-routing-machine.css') }}" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -30,7 +31,7 @@
   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.1/leaflet.markercluster.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.1/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.1/MarkerCluster.Default.css" />   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.1/MarkerCluster.Default.css" />
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -60,35 +61,36 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 		<header class="site-navbar py-2 js-sticky-header site-navbar-target" role="banner">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-6 col-xl-2">
-					<h1 class="mb-0 site-logo"><a href="/" class="h2 mb-0">Museum</a></h1>
-				</div>
-				<div class="col-12 col-md-10 d-none d-xl-block">
-					<nav class="site-navigation position-relative text-right" role="navigation">
-					<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-						@if (Auth::check())
-							<li>
-								<a href="{{ route('actionlogout') }}" class="btn btn-primary">Keluar</a>
-							</li>
-						@else	
-							<li>
-								<a href="/login" class="btn btn-primary">Masuk</a>
-							</li>
-						@endif
-					</ul>
-					</nav>
-				</div>
-				<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
-					<a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-6 col-xl-2">
+						<h1 class="mb-0 site-logo"><a href="/" class="h2 mb-0">Museum</a></h1>
+					</div>
+					<div class="col-12 col-md-10 d-none d-xl-block">
+						<nav class="site-navigation position-relative text-right" role="navigation">
+						<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+							@if (Auth::check())
+								<li>
+									<a href="{{ route('actionlogout') }}" class="btn btn-primary">Keluar</a>
+								</li>
+							@else	
+								<li>
+									<a href="/login" class="btn btn-primary">Masuk</a>
+								</li>
+							@endif
+						</ul>
+						</nav>
+					</div>
+					<div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
+						<a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
+					</div>
 				</div>
 			</div>
-		</div>
 		</header>
 		@yield('content')
 	</div>
 	<!-- .site-wrap -->
+	<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

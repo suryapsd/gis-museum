@@ -79,7 +79,7 @@ class KoleksiController extends Controller
             return $actionBtn;
         })
         ->addColumn('description', function($data){
-            $desc = Str::words($data->desc, 10);
+            $desc = Str::words($data->desc, 4);
             return $desc;
         })
         ->rawColumns(['image_koleksi', 'formatted_date', 'action', 'description'])
